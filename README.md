@@ -14,7 +14,7 @@ Interesującą nas opcją jest autoryzacja po stronie Front-endu, a następnie w
 Dodatkowo istnieje open source'owa bibliteka do reacta 'opakowująca' bibliotekę MSAL - [react-aad-msal](https://www.npmjs.com/package/react-aad-msal). Wygląda elegancko i prosto.
 
 ### Rejestracja na Azure, oraz zapytanie do API
-Gdy mamy poprawnie [zarejestrowaną aplikację](https://docs.microsoft.com/en-us/azure/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-active-directory) na Azure(! Chyba jeszcze nie mamy), po autoryzacji na froncie będziemy mieli dostęp do AccessID - id dzięki któremu możemy tworzyć autoryzowane zapytania do API - wystarczy do zapytania dodać nagłówek: 
+Gdy mamy poprawnie [zarejestrowaną aplikację](https://docs.microsoft.com/en-us/azure/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-active-directory) na Azure(! Chyba jeszcze nie mamy - parametr `oauth2AllowImplicitFlow` w manifescie powinien być ustawiony na wartość `true`, przynajmniej według strony [tutaj](https://docs.microsoft.com/en-us/azure/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-active-directory), a niestety na starym nmarkecie jest na false - więc CHYBA trzeba zarejestrować nową), po autoryzacji na froncie będziemy mieli dostęp do AccessID - id dzięki któremu możemy tworzyć autoryzowane zapytania do API - wystarczy do zapytania dodać nagłówek: 
 >"Authorization" : "Bearer " + AccessID
 
 ### Spring Security razem z Azure AD
