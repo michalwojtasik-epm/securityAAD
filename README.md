@@ -45,7 +45,7 @@ private AADAuthenticationFilter aadAuthFilter;
 
 ## Aktualne zmiany
 
-Aktualnie teoretycznie na branchu są zmiany w serwerze, które powinny dawać autoryzację tylko zapytaniom z UI które mają poprawny AccessID. Praktycznie serwer poprawnie odrzuca nieautoryzowane zapytania, niestety te poprawne powodują wyrzucenie błędu:
+Aktualnie teoretycznie na branchu `Add_Authentication_To_Spring_Back-End` są zmiany w serwerze, które powinny dawać autoryzację tylko zapytaniom z UI które mają poprawny AccessID. Praktycznie serwer poprawnie odrzuca nieautoryzowane zapytania, niestety te poprawne powodują wyrzucenie błędu:
 ```
 com.nimbusds.jwt.proc.BadJWTException: Invalid token issuer
 	at com.microsoft.azure.spring.autoconfigure.aad.UserPrincipal$1.verify(UserPrincipal.java:123) ~[azure-spring-boot-2.0.4.jar:na]
