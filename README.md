@@ -42,3 +42,15 @@ private AADAuthenticationFilter aadAuthFilter;
               .authenticated()
     }
 ```
+
+## Aktualne zmiany
+
+Aktualnie teoretycznie na branchu są zmiany w serwerze, które powinny dawać autoryzację tylko zapytaniom z UI które mają poprawny AccessID. Praktycznie serwer poprawnie odrzuca nieautoryzowane zapytania, niestety te poprawne powodują wyrzucenie błędu:
+```
+com.nimbusds.jwt.proc.BadJWTException: Invalid token issuer
+	at com.microsoft.azure.spring.autoconfigure.aad.UserPrincipal$1.verify(UserPrincipal.java:123) ~[azure-spring-boot-2.0.4.jar:na]
+	at com.nimbusds.jwt.proc.DefaultJWTProcessor.verifyAndReturnClaims(DefaultJWTProcessor.java:261) ~[nimbus-jose-jwt-6.0.2.jar:6.0.2]
+	at com.nimbusds.jwt.proc.DefaultJWTProcessor.process(DefaultJWTProcessor.java:342) ~[nimbus-jose-jwt-6.0.2.jar:6.0.2]
+
+```
+Co wydaje mi się, iż jest spowodowane własnie tym iż aktualnie korzystamy z ClientID oraz SecretKey starego nMarketu zarejestrowanego w Azure AD, który parametr `oauth2AllowImplicitFlow` w manifescie ma ustawiony na wartość `false` zamiast na `true`. Jednakże istnieje zapewne duża szansa iż jestem w błędzie.
