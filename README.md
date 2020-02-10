@@ -53,4 +53,4 @@ com.nimbusds.jwt.proc.BadJWTException: Invalid token issuer
 	at com.nimbusds.jwt.proc.DefaultJWTProcessor.process(DefaultJWTProcessor.java:342) ~[nimbus-jose-jwt-6.0.2.jar:6.0.2]
 
 ```
-Co wydaje mi się, iż jest spowodowane własnie tym iż aktualnie korzystamy z ClientID oraz SecretKey starego nMarketu zarejestrowanego w Azure AD, który parametr `oauth2AllowImplicitFlow` w manifescie ma ustawiony na wartość `false` zamiast na `true`. Jednakże istnieje zapewne duża szansa iż jestem w błędzie.
+Co wydaje mi się, iż jest spowodowane własnie tym iż aktualnie korzystamy z ClientID oraz SecretKey starego nMarketu zarejestrowanego w Azure AD, który parametr `oauth2AllowImplicitFlow` w manifescie ma ustawiony na wartość `false` zamiast na `true`. Jednakże istnieje zapewne duża szansa iż jestem w błędzie i problem leży gdzie indziej.
